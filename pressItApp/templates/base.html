@@ -1,0 +1,39 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }}</title>
+      {% else %}
+      <title></title>
+      {% endif %}
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class=flashes>
+          {% for message in messages %}
+            <div><h1>{{ message }}</h1></div>
+          {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+    </head>
+
+    <body>
+        {% block content %}{% endblock %}
+        {% if wp_urls %}
+        <h2>Wordpress urls</h2>
+        <ul>
+          {% for wp_url in wp_urls %}
+            <li><a href='{{ wp_url }}'>{{ wp_url }}</a></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        {% if other_urls %}
+        <h2>Non-Wordpress urls</h2>
+        <ul>
+          {% for other_url in other_urls %}
+            <li><a href='{{ other_url }}'>{{ other_url }}</a></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+    </body>
+</html>

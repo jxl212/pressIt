@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <div>
+        <span>
+            {{ form.ip_address.label }}
+            {{ form.ip_address(size=32) }}
+        </span>
+        <span>
+        {{ form.ip_range.label }}
+        {{ form.ip_range(size=4) }}
+        </span>
+        <span>
+        {{ form.submit() }}      
+        </span>
+    </div>
+    </form>
+{% endblock %}
